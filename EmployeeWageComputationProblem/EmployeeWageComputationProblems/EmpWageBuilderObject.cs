@@ -1,12 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EmployeeWageComputationProblem
+namespace EmployeeWageComputationProblems
 {
-    class Program
+    class EmpWageBuilderObject
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
-        public static int computeEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        private string company;
+        private int empRatePerHour;
+        private int numOfWorkingDays;
+        private int maxHoursPerMonth;
+        private int totalEmpWages;
+
+        public EmpWageBuilderObject(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+        }
+        public void computeEmpWage()
         {
             int empHrs = 0;
             int totalWorkingDays = 0;
@@ -31,14 +46,12 @@ namespace EmployeeWageComputationProblem
                 totalEmployeeHour += empHrs;
                 Console.WriteLine("Day=" + totalWorkingDays + " Emplyee hours=" + empHrs);
             }
-            int totalEmpWages = totalEmployeeHour * empRatePerHour;
+            int totalEmpWages = totalEmployeeHour * this.empRatePerHour;
             Console.WriteLine("total employee wage for company is=" + company + "is" + totalEmpWages);
-            return totalEmpWages;
         }
-        static void Main(string[] args)
+        public string toString()
         {
-            computeEmpWage("DMart", 20, 2, 10);
-            computeEmpWage("Reliance", 10, 4, 20);
+            return "Total employee wage for company" + this.company + "is" + this.totalEmpWages;
         }
     }
 }
