@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EmployeeWageComputationProblems
 {
-   public  class CompanyEmpWage
+    class CompanyEmpWage
     {
         public string company;
         public int empRatePerHour;
